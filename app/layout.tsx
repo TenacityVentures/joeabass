@@ -19,19 +19,34 @@ export const metadata: Metadata = {
     default: `${site.name} — ${site.tagline}`,
     template: `%s — ${site.name}`,
   },
+  icons: {
+    icon: [
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
   description: site.description,
   openGraph: {
-    title: `${site.name} — ${site.tagline}`,
-    description: site.description,
+    // No title/description here — each page's own metadata (or the default
+    // above, for the homepage) flows through automatically. Only the parts
+    // that should stay constant across every page live in this block.
     url: site.url,
     siteName: site.name,
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — ${site.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.tagline}`,
-    description: site.description,
+    images: ["/og-image.jpg"],
   },
 };
 
